@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -16,6 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class User
 {
     /**
+     * @Groups("user")
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -23,53 +25,63 @@ class User
     private $id;
 
     /**
+     * @Groups("user")
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $firstname;
 
     /**
+     * @Groups("user")
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $lastname;
 
     /**
+     * @Groups("user")
      * @ORM\Column(type="string", length=255)
      */
     private $email;
 
     /**
+     * @Groups("user")
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      */
     private $apiKey;
 
     /**
+     * @Groups("user")
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
+     * @Groups("user")
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
+     * @Groups("user")
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $country;
 
     /**
+     * @Groups("user")
      * @ORM\OneToMany(targetEntity="App\Entity\Card", mappedBy="user", orphanRemoval=true)
      */
     private $cards;
 
     /**
+     * @Groups("user")
      * @ORM\ManyToOne(targetEntity="App\Entity\Subscription", inversedBy="users")
      * @ORM\JoinColumn(nullable=true)
      */
     private $subscription;
 
     /**
+     * @Groups("user")
      * @ORM\Column(type="simple_array", nullable=true)
      */
     private $roles = [];
