@@ -1,0 +1,11 @@
+# fixtures/user.yml
+App\Entity\User:
+  user_{1..10}:
+    subscription: '@subscription_*'
+    firstname: <firstName()>
+    lastname: <lastName()>
+    email: <email()>
+    apiKey: <uniqid()>
+    createdAt: <dateTimeBetween('-100 years', '-10 years')>
+    address: '37 rue veron'
+    country: 'France'

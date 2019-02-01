@@ -1,0 +1,9 @@
+# fixtures/card.yml
+App\Entity\Card:
+  card_{1..10}:
+    name: <name()>
+    credit_card_type: 'Visa'
+    credit_card_number: '1234567899876'
+    currency_code: 'EUR'
+    value: <numberBetween('1', '9999')>
+    user: '@user_*'

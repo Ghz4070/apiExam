@@ -5,10 +5,13 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity("email")
+ * @property string api_key
  */
 class User
 {
@@ -66,10 +69,17 @@ class User
      */
     private $subscription;
 
+    /**
+     * @ORM\Column(type="simple_array", nullable=true)
+     */
+    private $roles = [];
+
     public function __construct()
     {
         $this->subscription = new ArrayCollection();
         $this->cards = new ArrayCollection();
+        $this->apiKey = uniqid('app', true);
+        $this->roles = array('ROLE_USER');
     }
 
     public function getId(): ?int
@@ -200,6 +210,18 @@ class User
     public function setSubscription(?Subscription $subscription): self
     {
         $this->subscription = $subscription;
+
+        return $this;
+    }
+
+    public function getRoles(): ?array
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(?array $roles): self
+    {
+        $this->roles = $roles;
 
         return $this;
     }

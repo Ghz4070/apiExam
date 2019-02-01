@@ -43,7 +43,7 @@ class Card
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="cards")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
 

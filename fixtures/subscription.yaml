@@ -1,0 +1,6 @@
+# fixtures/subscription.yml
+App\Entity\Subscription:
+  subscription_{1..10}:
+    name: <name()>
+    slogan: <text()>
+    url: 'www.google.fr'

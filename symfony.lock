@@ -245,6 +245,9 @@
             "ref": "18ebf5a940573a20de06f9c4060101eeb438cf3d"
         }
     },
+    "symfony/options-resolver": {
+        "version": "v4.2.2"
+    },
     "symfony/orm-pack": {
         "version": "v1.0.5"
     },
