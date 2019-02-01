@@ -44,7 +44,7 @@ class User
     private $apiKey;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
@@ -65,7 +65,7 @@ class User
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Subscription", inversedBy="users")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $subscription;
 
@@ -76,10 +76,11 @@ class User
 
     public function __construct()
     {
-        $this->subscription = new ArrayCollection();
+
         $this->cards = new ArrayCollection();
         $this->apiKey = uniqid('app', true);
         $this->roles = array('ROLE_USER');
+        $this->createdAt = \DateTime::createFromFormat('U',time(), new \DateTimeZone('CET'));
     }
 
     public function getId(): ?int

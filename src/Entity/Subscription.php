@@ -34,7 +34,7 @@ class Subscription
     private $url;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="subscriptions", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="subscription", orphanRemoval=true)
      */
     private $users;
 

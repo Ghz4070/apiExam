@@ -25,3 +25,5 @@ cp .env.dist .env
 docker-compose up -d
 docker-compose exec --user=application web composer install
 ```
+
+Ajouter des fonctions pour plus d'option dans les fixtures
