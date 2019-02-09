@@ -13,7 +13,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Subscription
 {
     /**
-     * @Groups({"infoSubscription", "anonymousUser"})
+     * @Groups({"infoSubscription", "anonymousUser", "infoUser"})
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -21,19 +21,19 @@ class Subscription
     private $id;
 
     /**
-     * @Groups({"infoSubscription", "anonymousUser"})
+     * @Groups({"infoSubscription", "anonymousUser", "infoUser"})
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @Groups({"infoSubscription", "anonymousUser"})
+     * @Groups({"infoSubscription", "anonymousUser", "infoUser"})
      * @ORM\Column(type="string", length=255)
      */
     private $slogan;
 
     /**
-     * @Groups({"infoSubscription", "anonymousUser"})
+     * @Groups({"infoSubscription", "anonymousUser", "infoUser"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $url;

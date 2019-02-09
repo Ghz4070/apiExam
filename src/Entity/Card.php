@@ -11,6 +11,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Card
 {
     /**
+     * @Groups("infoUser")
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -18,27 +19,31 @@ class Card
     private $id;
 
     /**
-     * @Groups("anonymousUser")
+     * @Groups({"anonymousUser", "infoUser"})
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @Groups("infoUser")
      * @ORM\Column(type="string", length=255)
      */
     private $creditCardType;
 
     /**
+     * @Groups("infoUser")
      * @ORM\Column(type="string", length=255)
      */
     private $creditCardNumber;
 
     /**
+     * @Groups("infoUser")
      * @ORM\Column(type="string", length=255)
      */
     private $currencyCode;
 
     /**
+     * @Groups("infoUser")
      * @ORM\Column(type="integer")
      */
     private $value;

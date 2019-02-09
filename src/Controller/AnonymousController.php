@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Card;
 use App\Entity\Subscription;
 use App\Entity\User;
 use App\Repository\SubscriptionRepository;
